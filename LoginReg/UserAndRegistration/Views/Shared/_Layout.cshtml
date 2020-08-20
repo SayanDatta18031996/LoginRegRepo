@@ -1,0 +1,123 @@
+﻿@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SignUp</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    @*Boostrap css*@
+    <link href="~/Custom/Boostrap/css/bootstrap.min.css" rel="stylesheet" />
+    @*<%-- Datatable css--%>*@
+    <link href="~/Custom/Datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    @*<%--Fontawesome css--%>*@
+    <link href="~/Custom/fontawesome/css/all.css" rel="stylesheet" />
+    @*<%-- Jquery--%>*@
+    <script src="~/Custom/Boostrap/js/jquery-3.5.1.slim.min.js"></script>
+    @*<%-- Proper js--%>*@
+    <script src="~/Custom/Boostrap/js/popper.min.js"></script>
+    @*<%--Boostrap js--%>*@
+    <script src="~/Custom/Boostrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#">
+                    <img src="~/Custom/imgs/books.png" width="30" height="30" />
+                    Dynamic web
+                </a>
+                <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            @Html.ActionLink("View", "#", "#", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item active">
+                            @Html.ActionLink("SignUp", "SignUp", "Home", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item active">
+                            @Html.ActionLink("LogIn", "Login", "Home", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item active">
+                            @Html.ActionLink("Admin LogIn", "AdminLogIn", "Home", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item active">
+                            @Html.ActionLink("HelloUser", "Login", "Home", new { @class = "nav-link" })
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        @*<%--Contentholder body--%>*@
+        <div class="view" style="background-image: url('../../Custom/imgs/340603.jpg'); background-repeat:no-repeat;background-size:cover;background-position: center center;">
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+        @*<%--Footer--%>*@
+        <footer class="sticky-bottom font-small blue">
+            <div class="footer-copyright text-center py-3">
+                @Html.ActionLink("Sayan Datta", "#")
+                &copy; @DateTime.Now.Year Copyright: Sayan Datta
+            </div>
+        </footer>
+        </div>
+</body>
+</html>

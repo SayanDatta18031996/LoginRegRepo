@@ -1,0 +1,96 @@
+﻿@model UserAndRegistration.Models.UserLogin
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:5px solid red">
+            ViewBag.Message
+        </div>
+    }
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <br />
+                <br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div>
+                    <div class="col-md-10">
+                        <label class="field-validation-error" style="color:red">@Html.DisplayFor(model => model.logingErrorMessage)</label>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center><img width="150px" src="~/Custom/imgs/generaluser.png" /></center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>User Login</center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>User ID</label>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @type = "text", @name = "name", @class = "form-control", @placeholder = "Enter your Name ", @required = "" } })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>User Password</label>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @type = "password", @name = "password", @id = "password", @class = "form-control", @placeholder = "Ener a Password ", @required = "" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.RememberMe)
+                                        @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-success btn-block" id="lgbtn" value="Login" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="button" class="btn btn-info btn-block" value="SignUp" onclick="location.href='@Url.Action("Index", "Registration")'" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                @Html.ActionLink("Forget password? Click here", "Index", "Home")
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+}
+    <br />
+    <br />
+
